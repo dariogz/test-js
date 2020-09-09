@@ -2,7 +2,7 @@ class CircleWords {
 
 	static validate(words) {
 		if (!Array.isArray(words) || words.length <= 1)
-			return;
+			return false;
 
 		// Reference object for 
 		let result = {isValid: false, output: false};
