@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "validate-use-case": "node index.js chair height racket touch tunic",
+    "validate": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
