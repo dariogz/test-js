@@ -4,7 +4,7 @@ class CircleWords {
 		if (!Array.isArray(words) || words.length <= 1)
 			return false;
 
-		// Reference object for 
+		// Reference object for results
 		let result = {isValid: false, output: false};
 
 		// Get first word and start recursion
@@ -25,14 +25,16 @@ class CircleWords {
 			if (firstCharacter === lastCharacter) {
 				let nextRemainingWords = [...remainingWords];
 				let nextSequence = [...sequence,...nextRemainingWords.splice(i,1)];
+
+				// If there is no remaining words finish recursion
+				if (nextRemainingWords.length === 0) {
+					result.isValid = true;
+					result.output = nextSequence.join(" ");
+					return;
+				}
+
 				this.searchNext(nextSequence, nextRemainingWords, result);
 			}
-		}
-
-		// !If needed we could validate last character of last word with first character of first world to try closing the circle
-		if (remainingWords.length === 0) {
-			result.isValid = true;
-			result.output = sequence.join(" ");
 		}
 	}
 
